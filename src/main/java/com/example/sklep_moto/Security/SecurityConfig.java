@@ -34,12 +34,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/assets/**").permitAll()
-                .antMatchers("/cart")
+                .antMatchers("/cart","/zamowienia_user","/user_data/**")
                 .authenticated()
                 .antMatchers("/produkty","/kategorie","/create-kategorie","/create-produkty",
-                        "/update-produkty/**","/create-kategorie","/update-kategorie/**","/zamowienia",
-                        "/zamowienia_klient/**/**")
+                        "/update-produkty/**","/update-kategorie/**")
                 .hasAuthority("ADMIN")
+                .antMatchers("/zamowienia", "/zamowienia_klient/**","/update_status/**")
+                .hasAnyAuthority("ADMIN","PRACOWNIK")
                 .antMatchers("/").permitAll()
                 .and()
                 .formLogin()
@@ -47,10 +48,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/Glowna")
                 .permitAll()
                 .and()
-                .logout()
-                .and()
                 .exceptionHandling().accessDeniedPage("/accessDenied");
-
                 http.csrf().disable();
     }
+
 }

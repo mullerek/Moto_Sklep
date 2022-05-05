@@ -1,14 +1,9 @@
 package com.example.sklep_moto.Controllers;
 
-import com.example.sklep_moto.User;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import java.security.Principal;
 
 @Controller
 public class LoginController {

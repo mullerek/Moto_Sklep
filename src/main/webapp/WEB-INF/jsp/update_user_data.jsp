@@ -5,6 +5,7 @@
   Time: 18:58
   To change this template use File | Settings | File Templates.
 --%>
+
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -23,53 +24,51 @@
     <link rel="stylesheet" href="/https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 <c:import url="menu_gora.jsp"/>
 <div class="container">
 
-    <h1>Aktualizuj Produkt</h1>
-    <form:form method="post" action="/update-produkty/${id_produktu}">
+    <h1>Zmień dane</h1>
+    <form:form method="post" action="/user_data/update/${id_user}">
+        <div>
         <table>
             <tr>
-                <td>Kategoria </td>
-                <td><form:input path="id_kategoria"/></td>
+                <td>Imie </td>
+                <td><form:input path="imie" class="form-control"/></td>
             </tr>
             <tr>
-                <td>Nazwa Produkty </td>
-                <td><form:input path="nazwa_produktu"/></td>
+                <td>Nazwisko </td>
+                <td><form:input path="nazwisko" class="form-control"/></td>
             </tr>
             <tr>
-                <td>Producent </td>
-                <td><form:input path="producent"/></td>
+                <td>Ulica </td>
+                <td><form:input path="ulica" class="form-control"/></td>
             </tr>
             <tr>
-                <td>Opis </td>
-                <td><form:input path="opis"/></td>
+                <td>Kod pocztowy </td>
+                <td><form:input path="kod_pocztowy" class="form-control"/></td>
             </tr>
             <tr>
-                <td>Rozmiar </td>
-                <td><form:input path="rozmiar"/></td>
+                <td>Miasto </td>
+                <td><form:input path="miasto" class="form-control"/></td>
             </tr>
             <tr>
-                <td>Ilość </td>
-                <td><form:input path="ilosc"/></td>
+                <td>Nr telefonu </td>
+                <td><form:input path="nr_tel" class="form-control"/></td>
             </tr>
             <tr>
-                <td>Cena </td>
-                <td><form:input path="cena"/></td>
+                <td>Email </td>
+                <td><form:input path="email" class="form-control"/></td>
             </tr>
             <tr>
-                <td>Zdjęcie </td>
-                <td><form:input path="zdjecie"/></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Update"/></td>
+                <td><input type="submit" class="btn btn-dark rounded-pill py-2 btn-block" value="Zmień"/></td>
             </tr>
         </table>
+
+        </div>
     </form:form>
 </div>
-<footer class="footer-dark">
+<footer class="footer-dark" >
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-md-3 item">

@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="/https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
-<body onload="suma()">
+<body class="d-flex flex-column min-vh-100" onload="suma()" >
 <c:import url="menu_gora.jsp"/>
 <div class="container">
 
@@ -137,13 +137,7 @@
         </div>
     </div></div>
 </div>
-
-
-
-
-
-
-<footer class="footer-dark">
+<footer class="footer-dark mt-auto">
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-md-3 item">

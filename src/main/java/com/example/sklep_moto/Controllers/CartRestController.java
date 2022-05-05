@@ -1,7 +1,9 @@
 package com.example.sklep_moto.Controllers;
 
 import com.example.sklep_moto.CartItem;
+import com.example.sklep_moto.SendMail;
 import com.example.sklep_moto.Service.CartService;
+import com.example.sklep_moto.Service.ProduktyService;
 import com.example.sklep_moto.Service.UserService;
 import com.example.sklep_moto.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.mail.MessagingException;
 import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
@@ -25,6 +28,12 @@ public class CartRestController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    ProduktyService produktyService;
+
+    @Autowired
+    SendMail sendMail;
 
 
     @RequestMapping("/cart/add")
@@ -84,11 +93,13 @@ public class CartRestController {
     public String makeOrder(@RequestParam String dostawa,
                             @RequestParam String platnosc,
                             @AuthenticationPrincipal Authentication authentication,
-                            RedirectAttributes redirectAttributes)
-    {
+                            RedirectAttributes redirectAttributes) throws MessagingException {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         List<CartItem> cartItems  = cartService.listCartItems(user);
+
+
+
 
         double wartosc_dostawy = Double.parseDouble(dostawa);
         String rodzajDostawy ="";
@@ -113,13 +124,27 @@ public class CartRestController {
             return "Muszisz sie zalogowac, aby dodać produkt do koszyka";
         }
 
+        String zamowione_produkty = "";
+
         cartService.makeNewOrder(platnosc,wartosc_dostawy,rodzajDostawy);
 
         for(int i=0; i<cartItems.size(); i++)
         {
             cartService.saveProductsFromCart(cartItems.get(i).getProdukt(),cartItems.get(i).getQuantity());
+            produktyService.updateQuantity(cartItems.get(i).getProdukt(),cartItems.get(i).getQuantity());
+            zamowione_produkty +=
+
+                "<tr>"+
+                    "<td>" + cartItems.get(i).getProdukt().getNazwa_produktu() + "</td>" +
+                    "<td>" + cartItems.get(i).getQuantity() + "</td>"+
+                    "<td>" + cartItems.get(i).getProdukt().getCena() + "</td>" +
+                "</tr>";
+
+
         }
         cartService.clearCart();
+
+        sendMail.sendMail(user.getEmail(),"Dziekujemy za zakupy w naszym sklepiej",zamowione_produkty);
 
         redirectAttributes.addFlashAttribute("message","Zamówienie zrealizowano pomyślnie");
 

@@ -37,13 +37,14 @@
             <div class="col" >
                 <p class="text-center" style="font-size: 30px;margin-top: 30px;"> ${odziez.nazwa_produktu}</p>
                 <hr>
-                <input type="number" name="qty" value="1">
-                <button class="btn btn-primary" type="submit" style="background: rgb(45,210,41);margin-left: 20px;font-family: ABeeZee, sans-serif;border-width: 0px;">Dodaj do koszyka</button>
+
+                <input type="number" name="qty" value="1" min="1" max="${odziez.ilosc}">
+                <button class="btn btn-dark rounded-pill py-2 btn-block" type="submit" style="width: 200px; margin-top: 10px" >Dodaj do koszyka</button>
 
                 <c:if test="${not empty odziez.rozmiar}">
-                <p class="text-start"?>Rozmiar ${odziez.rozmiar} </p>
+                <p class="text-start">Rozmiar ${odziez.rozmiar} </p>
                 </c:if>
-                <p class="text-start"?><h3>${odziez.cena} zł</h3></p>
+                <p class="text-start"><h3>${odziez.cena} zł</h3></p>
 
                 <input type="hidden" value="${odziez.id_produktu}" name="id">
 

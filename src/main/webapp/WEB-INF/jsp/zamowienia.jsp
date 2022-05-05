@@ -36,7 +36,7 @@
                 <thead>
                 <tr>
                     <th scope="col" class="border-0 bg-light">
-                        <div class="p-2 px-3 text-uppercase">Id zamowienia</div>
+                        <div class="p-2 px-3 text-uppercase">Id zamówienia</div>
                     </th>
                     <th scope="col" class="border-0 bg-light">
                         <div class="py-2 text-uppercase">Dane adresowe klienta</div>
@@ -45,7 +45,7 @@
                         <div class="py-2 text-uppercase">Data złożenia zamówienia</div>
                     </th>
                     <th scope="col" class="border-0 bg-light">
-                        <div class="py-2 text-uppercase">Czy zrealizowano</div>
+                        <div class="py-2 text-uppercase">Status</div>
                     </th>
                     <th scope="col" class="border-0 bg-light">
                         <div class="py-2 text-uppercase">Rodzaj płatności</div>
@@ -53,8 +53,8 @@
                     <th scope="col" class="border-0 bg-light">
                         <div class="py-2 text-uppercase">Wartość zamówienia</div>
                     </th>
-                    <th scope="col" class="border-0 bg-light">
-                        <div class="py-2 text-uppercase">Rodzaj dostawy</div>
+                    <th scope="col" class="border-0 bg-light" >
+                        <div class="py-2 text-uppercase" >Rodzaj dostawy</div>
                     </th>
                 </tr>
                 </thead>
@@ -64,7 +64,7 @@
                         <td class="border-0 align-middle"><a href="/zamowienia_klient/${zamowione.user.id_user}/${zamowione.id_zamowienia}"><strong>Zamówienie nr: ${zamowione.id_zamowienia}</strong></a></td>
                         <td class="border-0 align-middle"><a href="/dane_klienta/${zamowione.user.id_user}"><strong>${zamowione.user.imie} ${zamowione.user.nazwisko} </strong></a></td>
                         <td class="border-0 align-middle"><strong>${zamowione.data_zamowienia}</strong></td>
-                        <td class="border-0 align-middle"><strong>${zamowione.czy_zrealizowano}</strong></td>
+                        <td class="border-0 align-middle"><strong>${zamowione.czy_zrealizowano} <a href="/update_status/${zamowione.id_zamowienia}"  />Zmień</strong></td>
                         <td class="border-0 align-middle"><strong>${zamowione.rodzaj_platnosci} </strong></td>
                         <td class="border-0 align-middle"><strong>${zamowione.wartosc_zamowienia} zł</strong></td>
                         <td class="border-0 align-middle"><strong>${zamowione.rodzaj_dostawy} </strong></td>

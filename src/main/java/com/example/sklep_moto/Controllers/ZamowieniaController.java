@@ -1,6 +1,6 @@
 package com.example.sklep_moto.Controllers;
 
-import com.example.sklep_moto.Repository.ZamowieniaProduktyRepository;
+import com.example.sklep_moto.Produkty;
 import com.example.sklep_moto.Service.UserService;
 import com.example.sklep_moto.Service.ZamowieniaService;
 import com.example.sklep_moto.Service.Zamowienia_ProduktyService;
@@ -10,15 +10,11 @@ import com.example.sklep_moto.Zamowienia_Produkty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class ZamowieniaController {
@@ -66,5 +62,18 @@ public class ZamowieniaController {
         model.addAttribute("dane", dane);
 
         return "dane_klienta";
+    }
+
+    @RequestMapping(value = "/update_status/{id}")
+    public String showUpdateContactPage(@PathVariable int id, Model model) {
+        model.addAttribute("id_zamowienia", id);
+        model.addAttribute("command", zamowieniaService.findById(id));
+        return "update_status";
+    }
+
+    @RequestMapping(value = "/update_status/{id}", method = RequestMethod.POST)
+    public String updateProdukty(@PathVariable int id, @ModelAttribute("zamowienia") Zamowienia zamowienia) {
+        zamowieniaService.updateStatus(id,zamowienia);
+        return "redirect:/zamowienia";
     }
 }

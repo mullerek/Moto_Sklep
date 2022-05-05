@@ -51,9 +51,16 @@
                 <td>${produkty.nazwa_produktu}</td>
                 <td>${produkty.producent}</td>
                 <td>${produkty.rozmiar}</td>
-                <td>${produkty.ilosc}</td>
+                <c:if test="${produkty.ilosc <=5}">
+                    <td style="color: red; font-size: 20px; ">${produkty.ilosc} !</td>
+                </c:if>
+                <c:if test="${produkty.ilosc >5}">
+                    <td>${produkty.ilosc}</td>
+                </c:if>
                 <td>${produkty.cena}</td>
-                <td><div id="photos"><img class="photos" src="https://drive.google.com/uc?export=view&id=${produkty.zdjecie}"></div></td>
+                <td><div id="photos">
+                    <img class="photos" src="https://drive.google.com/uc?export=view&id=${produkty.zdjecie}">
+                </div></td>
                 <td><a href="/update-produkty/${produkty.id_produktu}">Zarządzaj</a></td>
                 <td><a href="/delete-produkty/${produkty.id_produktu}">Usuń</a></td>
             </tr>

@@ -1,6 +1,5 @@
 package com.example.sklep_moto.Repository;
 
-import com.example.sklep_moto.Produkty;
 import com.example.sklep_moto.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

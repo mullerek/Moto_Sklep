@@ -21,7 +21,7 @@ public class ProduktyService {
 
     public List<Produkty> findAllSzukane(String slowo) {return produktyRepository.findAllSzukane(slowo);}
 
-    public List<Produkty> findAllProducts(int kategoria) {return produktyRepository.findAllKaski(kategoria);}
+    public List<Produkty> findAllProducts(int kategoria) {return produktyRepository.findAllByKat(kategoria);}
 
     public Optional<Produkty> findById(int id) {
         return produktyRepository.findById(id);
@@ -51,4 +51,13 @@ public class ProduktyService {
     public void deleteById(int id) {
         produktyRepository.deleteById(id);
     }
+
+    public Produkty updateQuantity(Produkty produkty, Integer ilosc)
+    {
+        Produkty updateProdukty = produktyRepository.findById(produkty.getId_produktu()).orElse(null);
+        int quant = updateProdukty.getIlosc()-ilosc;
+        updateProdukty.setIlosc(quant);
+        return produktyRepository.save(updateProdukty);
+    }
+
 }

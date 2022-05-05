@@ -10,7 +10,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -57,10 +56,11 @@ public class CartService {
 
     public String makeNewOrder( String platnosc, double wartosc_dostawy, String dostawa)
     {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         LocalDateTime now = LocalDateTime.now();
         Zamowienia zamowienia = new Zamowienia();
-
+        String temp_date = now.format(dtf);
+        LocalDateTime date = LocalDateTime.now().parse(temp_date,dtf);
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         List<CartItem> cartItems  = listCartItems(user);
@@ -75,8 +75,8 @@ public class CartService {
         suma = (double) Math.round(suma*100.0)/100.0;
 
         zamowienia.setUser(user);
-        zamowienia.setData_zamowienia(now);
-        zamowienia.setCzy_zrealizowano(false);
+        zamowienia.setData_zamowienia(date);
+        zamowienia.setCzy_zrealizowano("Przyjęto");
         zamowienia.setRodzaj_platnosci(platnosc);
         zamowienia.setWartosc_zamowienia(suma);
         zamowienia.setRodzaj_dostawy(dostawa);

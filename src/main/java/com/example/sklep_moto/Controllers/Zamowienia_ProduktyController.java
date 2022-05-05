@@ -1,7 +1,5 @@
 package com.example.sklep_moto.Controllers;
 
-import com.example.sklep_moto.CartItem;
-import com.example.sklep_moto.Repository.ZamowieniaProduktyRepository;
 import com.example.sklep_moto.Service.Zamowienia_ProduktyService;
 import com.example.sklep_moto.User;
 import com.example.sklep_moto.Zamowienia_Produkty;

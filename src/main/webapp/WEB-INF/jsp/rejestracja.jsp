@@ -39,17 +39,17 @@
             <section class="login-clean" style="background: rgb(255,255,255);">
                 <form:form method="post" action="/zarejestruj" style="background: rgb(214,241,252);color: rgb(80, 94, 108);">
                     <div class="illustration"><i class="fas fa-user-tie" style="color:blue;"></i></div>
-                    <div class="mb-3"><form:input  path="username" class="form-control" type="text"  placeholder="Login"/></div>
+                    <div class="mb-3"><form:input  path="username" class="form-control" type="text"  placeholder="Login" /></div>
                     <div class="mb-3"><form:input path="password" class="form-control" type="password"  placeholder="Hasło" minlength="6" required=""/></div>
-                    <div class="mb-3"><form:input path="imie" class="form-control" type="test"  placeholder="Imię"/></div>
-                    <div class="mb-3"><form:input path="nazwisko" class="form-control" type="test"  placeholder="Nazwisko"/></div>
+                    <div class="mb-3"><form:input path="imie" class="form-control" type="test"  placeholder="Imię" required=""/></div>
+                    <div class="mb-3"><form:input path="nazwisko" class="form-control" type="test"  placeholder="Nazwisko" required=""/></div>
                     <div class="mb-3"><form:input path="role" class="form-control" type="hidden" value="USER"/></div>
                     <div class="mb-3"><form:input path="aktywne" class="form-control" type="hidden" value="true"/></div>
-                    <div class="mb-3"><form:input path="ulica" class="form-control" type="text"  placeholder="Ulica"/></div>
+                    <div class="mb-3"><form:input path="ulica" class="form-control" type="text"  placeholder="Ulica" required=""/></div>
                     <div class="mb-3"><form:input path="kod_pocztowy" class="form-control" type="text"  placeholder="Kod pocztowy" minlength="5" required=""/></div>
-                    <div class="mb-3"><form:input path="miasto" class="form-control" type="text"  placeholder="Miasto"/></div>
+                    <div class="mb-3"><form:input path="miasto" class="form-control" type="text"  placeholder="Miasto" required=""/></div>
                     <div class="mb-3"><form:input path="nr_tel" class="form-control" type="text"  placeholder="Nr telefonu" minlength="9" required="" inputmode="tel"/></div>
-                    <div class="mb-3"><form:input path="email" class="form-control" type="email"  placeholder="Email" inputmode="email"/></div>
+                    <div class="mb-3"><form:input path="email" class="form-control" type="email"  placeholder="Email" inputmode="email" required=""/></div>
                     <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit" style="background:blue;">Zarejestruj się</button></div>
                 </form:form>
             </section>

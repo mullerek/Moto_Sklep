@@ -9,7 +9,6 @@
 <%@ taglib prefix="th" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="http://www.thymeleaf.org" >
 
 <head>
     <meta charset="utf-8">
@@ -46,8 +45,8 @@
                     <div class="mb-3"><input class="form-control" type="text" name="username" placeholder="Login"></div>
                     <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Hasło"></div>
                     <p style="text-align: center; color: red; font-size: 12px">${errorMsg}</p>
-                    <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit" style="background:cornflowerblue;">Zaloguj</button></div><a class="forgot" href="#">Nie pamiętam loginu lub hasła</a>
-                    <a class="btn btn-primary" href="rejestracja" type="submit" value="Zarejestruj się" style="margin-top: 10px;width: 240px;">Zarejestruj się</a>
+                    <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit" style="background:cornflowerblue;">Zaloguj</button></div>
+                    <a class="btn btn-primary" href="rejestracja" type="submit" value="Zarejestruj się" style="margin-top: 10px;width: 240px;">Rejestracja</a>
                 </form>
                 <p style="text-align: center;transform: perspective(0px);font-size: 30px;font-weight: bold;font-style: italic;color:grey;"></p>
             </section>
@@ -76,7 +75,7 @@
 
             <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
         </div>
-        <p class="copyright">Company Name © 2021</p>
+        <p class="copyright">MotoShop © 2021</p>
     </div>
 
 </footer>

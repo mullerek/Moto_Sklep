@@ -10,12 +10,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <nav class="navbar navbar-light navbar-expand-md bg-warning shadow">
-    <div class="container"><a class="navbar-brand" href="/Glowna" style="font-family:'Apple Color Emoji'; font-weight: bolder;">MotoShop</a>
+    <div class="container"><a class="navbar-brand" href="/Glowna" style="font-family:'Apple Color Emoji'; font-weight: bolder;">Moto Sklep</a>
         <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navcol-1" style="color: rgb(255, 193, 7);">
+        <div class="collapse navbar-collapse" id="navcol-1" style="color: rgb(255, 193, 7);padding-bottom: 5px; height: 60px">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <div class="search-box" style="text-align: center">
+                    <div class="search-box" style="text-align: center; ">
                         <form method="post" action="/wyszukaj" style="text-align: center">
 
                             <button class="btn-search"><i class="fa fa-search"></i></button>
@@ -39,6 +39,7 @@
                             <div class="dropdown-menu" style="z-index: 2;">
                                 <a class="dropdown-item" href="/logout">Wyloguj</a>
                                 <a class="dropdown-item" href="/zamowienia_user">Moje zamówienia</a>
+                                <a class="dropdown-item" href="/user_data">Dane osobowe</a>
                             </div>
                         </div></a>
                     </li>
@@ -61,6 +62,13 @@
                             <a class="dropdown-item" href="/zamowienia">Zamowienia</a>
                         </div>
                     </div>
+                    </c:if>
+                    <c:if test="${username != null and rola=='PRACOWNIK'}">
+                        <div class="nav-item dropdown" data-toggle="tooltip" data-bss-tooltip="" data-bss-hover-animate="pulse"><a class="active" aria-expanded="false" data-toggle="dropdown" href="">Zarządzanie</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/zamowienia">Zamowienia</a>
+                            </div>
+                        </div>
                     </c:if>
                 </li>
                 <li class="nav-item" style="padding: 8px;">

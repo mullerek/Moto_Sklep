@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+
 
 @Controller
 public class ProduktyController {
@@ -26,21 +26,21 @@ public class ProduktyController {
     }
 
     @RequestMapping("/produkty")
-    public String showReadContactPage(Model model) {
+    public String showProdukty(Model model) {
         model.addAttribute("produkty", produktyService.findAll());
         return "produkty";
     }
 
 
     @RequestMapping("/create-produkty")
-    public String showCreateContactPage(Model model) {
+    public String CreateProdukty(Model model) {
         model.addAttribute("listaKat", kategorieService.findAll());
         model.addAttribute("command", new Produkty());
         return "createprodukty";
     }
 
     @RequestMapping(value = "/create-produkty", method = RequestMethod.POST)
-    public String createContact(@ModelAttribute("produkty") Produkty produkty) {
+    public String saveCreatedProduct(@ModelAttribute("produkty") Produkty produkty) {
         produktyService.saveProdukty(produkty);
         return "redirect:/produkty";
     }

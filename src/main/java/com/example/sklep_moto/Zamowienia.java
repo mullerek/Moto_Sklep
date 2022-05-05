@@ -2,7 +2,7 @@ package com.example.sklep_moto;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Date;
+
 
 @Entity
 @Table(name= "zamowienia")
@@ -18,7 +18,7 @@ public class Zamowienia {
 
     private LocalDateTime data_zamowienia;
 
-    private boolean czy_zrealizowano;
+    private String czy_zrealizowano;
 
     private String rodzaj_platnosci;
 
@@ -50,11 +50,11 @@ public class Zamowienia {
         this.data_zamowienia = data_zamowienia;
     }
 
-    public boolean isCzy_zrealizowano() {
+    public String getCzy_zrealizowano() {
         return czy_zrealizowano;
     }
 
-    public void setCzy_zrealizowano(boolean czy_zrealizowano) {
+    public void setCzy_zrealizowano(String czy_zrealizowano) {
         this.czy_zrealizowano = czy_zrealizowano;
     }
 
