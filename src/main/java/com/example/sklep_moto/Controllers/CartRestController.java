@@ -146,7 +146,7 @@ public class CartRestController {
 
         sendMail.sendMail(user.getEmail(),"Dziekujemy za zakupy w naszym sklepiej",zamowione_produkty);
 
-        redirectAttributes.addFlashAttribute("message","Zamówienie zrealizowano pomyślnie");
+        redirectAttributes.addFlashAttribute("message","Zamówienie złożono pomyślnie");
 
         return "redirect:/Glowna";
     }

@@ -3,10 +3,16 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  margin-top: 100px;
-  text-align: center
+  text-align: center;
+  margin-bottom: 100px;
 }
-
+.slidephoto
+{
+  max-height: 100%;
+  background-repeat: no-repeat;
+  width: 80%;
+  overflow: hidden;
+}
 .simple-slider .swiper-button-next, .simple-slider .swiper-button-prev {
   width: 50px;
   margin-left: 20px;
@@ -24,6 +30,4 @@
     height: 360px;
   }
 }
-
-
 

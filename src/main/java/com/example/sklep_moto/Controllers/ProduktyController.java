@@ -25,6 +25,12 @@ public class ProduktyController {
         return "Glowna";
     }
 
+    @RequestMapping({"/","/index"})
+    public String index()
+    {
+        return "forward:/Glowna";
+    }
+
     @RequestMapping("/produkty")
     public String showProdukty(Model model) {
         model.addAttribute("produkty", produktyService.findAll());
@@ -50,6 +56,7 @@ public class ProduktyController {
     @RequestMapping(value = "/update-produkty/{id}")
     public String showUpdateContactPage(@PathVariable int id, Model model) {
         model.addAttribute("id_produktu", id);
+        model.addAttribute("listaKat", kategorieService.findAll());
         model.addAttribute("command", produktyService.findById(id).orElse(null));
         return "updateprodukty";
     }

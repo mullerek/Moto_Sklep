@@ -47,5 +47,12 @@ public class DaneProduktyController {
         return "produkty_wg_kat";
     }
 
+    @RequestMapping("/info")
+    public String showInfo() {
+
+        return "info";
+    }
+
+
 
 }

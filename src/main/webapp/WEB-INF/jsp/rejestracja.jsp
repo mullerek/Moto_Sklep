@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
 <c:import url="menu_gora.jsp"/>
 <div class="container">
     <div class="row">
@@ -39,48 +39,24 @@
             <section class="login-clean" style="background: rgb(255,255,255);">
                 <form:form method="post" action="/zarejestruj" style="background: rgb(214,241,252);color: rgb(80, 94, 108);">
                     <div class="illustration"><i class="fas fa-user-tie" style="color:blue;"></i></div>
-                    <div class="mb-3"><form:input  path="username" class="form-control" type="text"  placeholder="Login" /></div>
-                    <div class="mb-3"><form:input path="password" class="form-control" type="password"  placeholder="Hasło" minlength="6" required=""/></div>
-                    <div class="mb-3"><form:input path="imie" class="form-control" type="test"  placeholder="Imię" required=""/></div>
-                    <div class="mb-3"><form:input path="nazwisko" class="form-control" type="test"  placeholder="Nazwisko" required=""/></div>
+                    <div class="mb-3"><form:input  path="username" class="form-control" type="text" placeholder="Login" minlength="5" required="required"/></div>
+                    <div class="mb-3"><form:input path="password" class="form-control" type="password"  placeholder="Hasło" minlength="6" required="required"/></div>
+                    <div class="mb-3"><form:input path="imie" class="form-control" type="test"  placeholder="Imię" minlength="3" required="required"/></div>
+                    <div class="mb-3"><form:input path="nazwisko" class="form-control" type="test"  placeholder="Nazwisko" minlenght="3" required="required"/></div>
                     <div class="mb-3"><form:input path="role" class="form-control" type="hidden" value="USER"/></div>
                     <div class="mb-3"><form:input path="aktywne" class="form-control" type="hidden" value="true"/></div>
-                    <div class="mb-3"><form:input path="ulica" class="form-control" type="text"  placeholder="Ulica" required=""/></div>
-                    <div class="mb-3"><form:input path="kod_pocztowy" class="form-control" type="text"  placeholder="Kod pocztowy" minlength="5" required=""/></div>
-                    <div class="mb-3"><form:input path="miasto" class="form-control" type="text"  placeholder="Miasto" required=""/></div>
-                    <div class="mb-3"><form:input path="nr_tel" class="form-control" type="text"  placeholder="Nr telefonu" minlength="9" required="" inputmode="tel"/></div>
-                    <div class="mb-3"><form:input path="email" class="form-control" type="email"  placeholder="Email" inputmode="email" required=""/></div>
+                    <div class="mb-3"><form:input path="ulica" class="form-control" type="text"  placeholder="Ulica" minlength="4" required="required"/></div>
+                    <div class="mb-3"><form:input path="kod_pocztowy" class="form-control" type="text"  placeholder="Kod pocztowy" minlength="5" required="required"/></div>
+                    <div class="mb-3"><form:input path="miasto" class="form-control" type="text"  placeholder="Miasto" minlength="3" required="required"/></div>
+                    <div class="mb-3"><form:input path="nr_tel" class="form-control" type="text"  placeholder="Nr telefonu" minlength="9"  inputmode="tel" required="required"/></div>
+                    <div class="mb-3"><form:input path="email" class="form-control" type="email"  placeholder="Email" inputmode="email" required="required"/></div>
                     <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit" style="background:blue;">Zarejestruj się</button></div>
                 </form:form>
             </section>
         </div>
     </div>
 </div>
-<footer class="footer-dark">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6 col-md-3 item">
-                <h3>Informacje</h3>
-                <ul>
-                    <li><a href="#">Regulamin</a></li>
-                    <li><a href="#">Zwroty</a></li>
-                    <li><a href="#"></a></li>
-                </ul>
-            </div>
-            <div class="col-sm-6 col-md-3 item">
-                <h3>Kontakt</h3>
-                <ul>
-                    <li style="color: var(--white);"><a class="text-white" href="#" style="color: var(--white);">Tel: +48 500 409 226</a></li>
-                    <li><a href="#">Email: pawel.muller1998@gmail.com</a></li>
-                    <li><a href="#">Careers</a></li>
-                </ul>
-            </div>
-
-            <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
-        </div>
-        <p class="copyright">Company Name © 2021</p>
-    </div>
-</footer>
+<c:import url="footer.jsp"/>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/js/bs-init.js"></script>

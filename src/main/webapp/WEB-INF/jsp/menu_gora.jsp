@@ -81,9 +81,9 @@
                         <div class="dropdown-menu"><a class="dropdown-item" href="/produkty_wg_kat/5">Łańcuchy</a><a class="dropdown-item" href="/produkty_wg_kat/6">Zębatki</a><a class="dropdown-item" href="/produkty_wg_kat/7">Zestawy</a></div>
                     </div><a class="nav-link" href="#"></a>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="/produkty_wg_kat/2">Zawieszenie</a></li>
-                <li class="nav-item"><a class="nav-link" href="/produkty_wg_kat/4">Oleje i płyny</a></li>
-                <li class="nav-item"><a class="nav-link" href="/produkty_wg_kat/3">Odzież</a></li>
+                <li class="nav-item"><a class="nav-link" style="color: #007bff; " href="/produkty_wg_kat/2">Zawieszenie</a></li>
+                <li class="nav-item"><a class="nav-link" style="color: #007bff" href="/produkty_wg_kat/4">Oleje i płyny</a></li>
+                <li class="nav-item"><a class="nav-link" style="color: #007bff" href="/produkty_wg_kat/3">Odzież</a></li>
             </ul>
         </div>
     </div>

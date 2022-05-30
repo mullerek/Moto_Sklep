@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="/https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 <c:import url="menu_gora.jsp"/>
 <div class="container">
 
@@ -32,7 +32,13 @@
         <table>
             <tr>
                 <td>Kategoria </td>
-                <td><form:input path="id_kategoria"/></td>
+                <td>
+                    <form:select path="id_kategoria">
+                        <c:forEach var="kat" items="${listaKat}">
+                            <form:option value="${kat.id_kategorii}" label="${kat.nazwa_kategorii}"></form:option>
+                        </c:forEach>
+                    </form:select>
+                </td>
             </tr>
             <tr>
                 <td>Nazwa Produkty </td>
@@ -64,36 +70,12 @@
             </tr>
             <tr>
                 <td></td>
-                <td><input type="submit" value="Update"/></td>
+                <td><input type="submit" class="btn btn-dark rounded-pill py-2 btn-block" value="Aktualizuj" style="margin-top: 10px"/></td>
             </tr>
         </table>
     </form:form>
 </div>
-<footer class="footer-dark">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6 col-md-3 item">
-                <h3>Informacje</h3>
-                <ul>
-                    <li><a href="#">Regulamin</a></li>
-                    <li><a href="#">Zwroty</a></li>
-                    <li><a href="#"></a></li>
-                </ul>
-            </div>
-            <div class="col-sm-6 col-md-3 item">
-                <h3>Kontakt</h3>
-                <ul>
-                    <li style="color: var(--white);"><a class="text-white" href="#" style="color: var(--white);">Tel: +48 500 409 226</a></li>
-                    <li><a href="#">Email: pawel.muller1998@gmail.com</a></li>
-                    <li><a href="#">Careers</a></li>
-                </ul>
-            </div>
-
-            <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
-        </div>
-        <p class="copyright">Company Name © 2021</p>
-    </div>
-</footer>
+<c:import url="footer.jsp"/>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/js/bs-init.js"></script>
